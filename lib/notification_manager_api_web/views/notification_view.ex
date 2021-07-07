@@ -12,6 +12,7 @@ defmodule NotificationManagerApiWeb.NotificationView do
 
   def render("notification.json", %{notification: notification}) do
     %{id: notification.id,
-      body: notification.body}
+      body: notification.body,
+      received_at: notification.inserted_at}
   end
 end
