@@ -12,7 +12,7 @@ database_url =
     """
 
 config :notification_manager_api, NotificationManagerApi.Repo,
-  # ssl: true,
+  ssl: true,
   url: database_url,
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10")
 
