@@ -2,6 +2,8 @@ defmodule NotificationManagerApiWeb.Router do
   use NotificationManagerApiWeb, :router
 
   pipeline :api do
+    plug CORSPlug
+
     plug :accepts, ["json"]
   end
 
