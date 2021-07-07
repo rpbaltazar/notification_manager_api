@@ -11,8 +11,8 @@ defmodule NotificationManagerApiWeb.NotificationController do
     render(conn, "index.json", notifications: notifications)
   end
 
-  def create(conn, %{"notification" => notification_params}) do
-    with {:ok, %Notification{} = notification} <- NotifStore.create_notification(notification_params) do
+  def create(conn, notification_params) do
+    with {:ok, %Notification{} = notification} <- NotifStore.create_notification(%{"body" => notification_params}) do
       conn
       |> put_status(:created)
       |> put_resp_header("location", Routes.notification_path(conn, :show, notification))
